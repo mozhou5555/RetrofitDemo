@@ -5,16 +5,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 
+import com.google.gson.JsonSyntaxException;
 import com.zyj.plaything.Constant;
 import com.zyj.plaything.R;
 import com.zyj.plaything.http.BoxOfficeConnection;
 import com.zyj.plaything.pojo.BoxOffice;
-import com.zyj.plaything.pojo.Result;
+import com.zyj.plaything.pojo.ServiceResult;
 
 import java.util.List;
 
+import retrofit2.adapter.rxjava.HttpException;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -52,21 +55,26 @@ public class BoxOfficeActivity extends AppCompatActivity {
                 .getBoxOfficeData(Constant.JUHE_KEY, "CN") //请求参数
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<Result<List<BoxOffice>>>() {
+                .subscribe(new Subscriber<ServiceResult<List<BoxOffice>>>() {
                     @Override
                     public void onCompleted() {
-                        //完成的时候会调用
+
                     }
 
                     @Override
-                    public void onError(Throwable e) {
-                        //网络错误的时候执行
+                    public void onError(Throwable throwable) {
+                        if (throwable instanceof HttpException) {
+                            HttpException error = (HttpException) throwable;
+                        } else if(throwable instanceof JsonSyntaxException){
+                            Log.w("log", "Json转换错误");
+                        }
+                        throwable.printStackTrace();
                     }
 
                     @Override
-                    public void onNext(Result<List<BoxOffice>> listResult) {
-                        adapter.mList = listResult.getResult();
-                        rcv.setAdapter(adapter);
+                    public void onNext(ServiceResult<List<BoxOffice>> data) {
+                            adapter.mList = data.getResult();
+                            rcv.setAdapter(adapter);
                     }
                 });
     }

@@ -1,7 +1,7 @@
 package com.zyj.plaything.http.api;
 
 import com.zyj.plaything.pojo.BoxOffice;
-import com.zyj.plaything.pojo.Result;
+import com.zyj.plaything.pojo.ServiceResult;
 
 import java.util.List;
 
@@ -15,5 +15,5 @@ import rx.Observable;
  */
 public interface BoxOfficeApi {
     @GET("boxoffice/rank")
-    Observable<Result<List<BoxOffice>>> getBoxOfficeData(@Query("key") String key, @Query("area") String area);
+    Observable<ServiceResult<List<BoxOffice>>> getBoxOfficeData(@Query("key") String key, @Query("area") String area);
 }
