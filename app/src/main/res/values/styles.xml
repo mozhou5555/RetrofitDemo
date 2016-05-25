@@ -1,0 +1,27 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <!-- toolbar 颜色 -->
+        <item name="colorPrimary">@color/primary</item>
+        <!-- 状态栏颜色 -->
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <!-- colorAccent 对应EditText编辑时、RadioButton选中、CheckBox等选中时的颜色 -->
+        <item name="colorAccent">@color/accent</item>
+        <!-- 窗口的背景颜色 -->
+        <item name="android:windowBackground">@color/white</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <!-- toolbar 未选中控件颜色 -->
+        <item name="colorControlNormal">@color/gray</item>
+        <item name="actionMenuTextColor">@color/white</item>
+    </style>
+
+
+</resources>

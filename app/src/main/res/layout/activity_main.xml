@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar" />
+
+    <Button
+        android:id="@+id/main_btn_box_office"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="票房排行"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:background="@color/primary_dark"
+        android:textColor="@color/white"/>
+
+
+</LinearLayout>

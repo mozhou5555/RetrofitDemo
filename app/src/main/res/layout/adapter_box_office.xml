@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/adapter_box_office_tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="美队"
+            android:textColor="@color/text_black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/adapter_box_office_tv_rid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="排名"
+            android:textColor="@color/text_gray_deep" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/adapter_box_office_tv_wk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="榜单周数"
+        android:textColor="@color/app_blue"
+        android:layout_marginTop="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/adapter_box_office_tv_wboxoffice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="周末票房"
+            android:textColor="@color/blue" />
+
+        <TextView
+            android:id="@+id/adapter_box_office_tv_tboxoffice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="累计票房"
+            android:textColor="@color/app_red" />
+
+
+    </LinearLayout>
+
+</LinearLayout>
