@@ -15,8 +15,8 @@ import com.zyj.plaything.pojo.Result;
 
 import java.util.List;
 
+import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
 /**
@@ -52,12 +52,23 @@ public class BoxOfficeActivity extends AppCompatActivity {
                 .getBoxOfficeData(Constant.JUHE_KEY, "CN") //请求参数
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<Result<List<BoxOffice>>>() {
+                .subscribe(new Subscriber<Result<List<BoxOffice>>>() {
                     @Override
-                    public void call(Result<List<BoxOffice>> listResult) {
+                    public void onCompleted() {
+                        //完成的时候会调用
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        //网络错误的时候执行
+                    }
+
+                    @Override
+                    public void onNext(Result<List<BoxOffice>> listResult) {
                         adapter.mList = listResult.getResult();
                         rcv.setAdapter(adapter);
                     }
                 });
     }
+
 }
